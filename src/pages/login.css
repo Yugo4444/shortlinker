@@ -1,0 +1,103 @@
+/* Auth pages: login & register */
+
+.auth-page {
+  min-height: 100vh;
+  background: var(--color-bg-subtle);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-header {
+  width: 100%;
+  padding: var(--space-8) var(--space-6);
+  display: flex;
+  justify-content: center;
+}
+
+.auth-header .logo {
+  height: 36px;
+  width: auto;
+}
+
+.auth-card {
+  margin: auto;
+  width: 100%;
+  max-width: 400px;
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+}
+
+.auth-card h2 {
+  text-align: center;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: -0.02em;
+}
+
+.auth-card input {
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.auth-card input::placeholder {
+  color: var(--color-text-muted);
+}
+
+.auth-card input:hover {
+  border-color: var(--color-border-strong);
+}
+
+.auth-card input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(9, 9, 11, 0.08);
+}
+
+.auth-btn {
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.auth-btn:hover {
+  background: var(--color-accent-hover);
+}
+
+.auth-btn:active {
+  transform: scale(0.98);
+}
+
+.auth-footer {
+  text-align: center;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.auth-footer span {
+  color: var(--color-text);
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  transition: opacity var(--transition-fast);
+}
+
+.auth-footer span:hover {
+  opacity: 0.7;
+}
