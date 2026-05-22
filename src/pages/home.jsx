@@ -10,7 +10,13 @@ function Home() {
   const [links, setLinks] = useState([])
   const [sidebar, setSidebar] = useState(null)
   const [activeQR, setActiveQR] = useState(null)
+  const [showGuestPopup, setShowGuestPopup] = useState(false)
+  const [guestPopupShown, setGuestPopupShown] = useState(false)
   const navigate = useNavigate()
+
+  function closeGuestPopup() {
+    setShowGuestPopup(false)
+  }
 
   function handleShorten() {
     if (!url) return
@@ -23,6 +29,11 @@ function Home() {
 
     setLinks([newLink, ...links])
     setUrl("")
+
+    if (!guestPopupShown) {
+      setShowGuestPopup(true)
+      setGuestPopupShown(true)
+    }
   }
 
   function toggleQR(id) {
@@ -64,6 +75,60 @@ function Home() {
       </div>
 
       <SettingsSidebar sidebar={sidebar} onClose={() => setSidebar(null)} />
+
+      {showGuestPopup && (
+        <div className="guest-popup-overlay" onClick={closeGuestPopup}>
+          <div
+            className="guest-popup"
+            onClick={(e) => e.stopPropagation()}
+            role="dialog"
+            aria-labelledby="guest-popup-title"
+            aria-modal="true"
+          >
+            <button
+              type="button"
+              className="guest-popup__close"
+              onClick={closeGuestPopup}
+              aria-label="Закрыть"
+            >
+              ×
+            </button>
+
+            <h2 id="guest-popup-title" className="guest-popup__title">
+              Войдите и получите больше возможностей
+            </h2>
+            <p className="guest-popup__subtitle">
+              Сохраняйте ссылки и отслеживайте статистику
+            </p>
+
+            <ul className="guest-popup__features">
+              <li>История сокращенных ссылок</li>
+              <li>Аналитика переходов</li>
+              <li>Доступ с любого устройства</li>
+            </ul>
+
+            <div className="guest-popup__actions">
+              <button
+                type="button"
+                className="btn btn--primary guest-popup__btn"
+                onClick={() => {
+                  closeGuestPopup()
+                  navigate("/")
+                }}
+              >
+                Войти
+              </button>
+              <button
+                type="button"
+                className="btn btn--ghost guest-popup__btn"
+                onClick={closeGuestPopup}
+              >
+                Продолжить без регистрации
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
