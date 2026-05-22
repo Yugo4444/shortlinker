@@ -1,4 +1,9 @@
 import { useNavigate } from "react-router-dom"
+import linkIcon from "../assets/icons/link.png"
+import miniqrIcon from "../assets/icons/qr-code.png"
+import settingsIcon from "../assets/icons/settings.png"
+import statisticsIcon from "../assets/icons/statistics.png"
+
 
 function LinkCard({
   item,
@@ -20,7 +25,7 @@ function LinkCard({
           <div className="link-card__info">
             <img
               className="link-card__icon"
-              src="https://placehold.co/40x40/f4f4f5/71717a?text=↗"
+              src={linkIcon}
               alt=""
             />
             <div className="link-card__urls">
@@ -41,7 +46,7 @@ function LinkCard({
               onClick={() => onOpenSidebar("LinkSettings")}
               aria-label="Настройки ссылки"
             >
-              <img src="https://placehold.co/18x18/f4f4f5/71717a?text=⚙" alt="" />
+              <img src={settingsIcon} alt="" />
             </button>
             <button
               type="button"
@@ -49,7 +54,7 @@ function LinkCard({
               onClick={() => onOpenSidebar("QRSettings")}
               aria-label="Настройки QR"
             >
-              <img src="https://placehold.co/18x18/f4f4f5/71717a?text=▦" alt="" />
+              <img src={miniqrIcon} alt="" />
             </button>
           </div>
         </div>
@@ -66,7 +71,8 @@ function LinkCard({
                   aria-label="Статистика"
                 >
                   <img
-                    src="https://placehold.co/24x24/f4f4f5/71717a?text=📊"
+                    className="link-card__stats-icon"
+                    src={statisticsIcon}
                     alt=""
                   />
                 </button>

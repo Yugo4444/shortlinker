@@ -296,9 +296,14 @@
 .link-card__icon {
   width: 40px;
   height: 40px;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
+  /* border-radius: var(--radius-md);
+  border: 1px solid var(--color-border); */
   flex-shrink: 0;
+}
+
+.link-card__stats-icon{
+  width: 40px;
+  height: 40px;
 }
 
 .link-card__urls {
@@ -328,7 +333,7 @@
 .link-card__aside {
   display: flex;
   align-items: center;
-  gap: var(--space-4);
+  gap: var(--space-8);
   flex-shrink: 0;
 }
 
